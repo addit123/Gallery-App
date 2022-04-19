@@ -21,10 +21,15 @@
     background-image: linear-gradient(315deg, #e84393 0%, #000000 74%);
 }
 
-h1, h2  , h4      {
+h1, h2  , h4 {
     color: white;
     border-bottom-style: solid;
 }
 .field ,p ,li , h3{
     color: white;
+}
+.img{
+  height: 25vh;
+  width: 100%;
+  object-fit: cover;
 }

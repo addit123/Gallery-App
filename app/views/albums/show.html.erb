@@ -2,8 +2,7 @@
   <h4 class="my-5 text-center"><b>Description:</b><%= @album.description  %></h4>
   <hr>
   <button type="button" class="btn btn-secondary fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<i class="fa fa-upload"></i></button>
-
+    <i class="fa fa-upload"></i></button>
   <div class="row mt-5">
     <% @album.images.each do |image| %>
       <div class="col-lg-4 my-2">
@@ -16,10 +15,10 @@
               <i class="fas fa-edit"></i>
             <%end%>
             <%if current_user.albums%>
-            <%= button_to purge_image_path(id: image.id), method: :delete,  class:"btn btn-danger fs-5" , style:"float: right;" do %>
-            <i class="fas fa-trash"></i>
-             <%end%>
-             <%end%>
+              <%= button_to purge_image_path(id: image.id), method: :delete,  class:"btn btn-danger fs-5" , style:"float: right;" do %>
+                <i class="fas fa-trash"></i>
+              <%end%>
+            <%end%>
           </div>
         </div>
       </div>
@@ -30,20 +29,20 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
+        <h3 class="text-dark text-center">Uplaod Images!</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <%= form_with model: @album do |form| %>
-        <div class="field">
-          <%= form.file_field :images,  multiple: true, class: "form-control w-50" %>
-        </div>
-        <br />
-        <div>
-          <%= form.submit "Add Images", class: "btn btn-secondary" %>
-        </div>
+          <div class="field">
+            <%= form.file_field :images,  multiple: true, class: "form-control w-50" %>
+          </div>
+          <br />
+          <div>
+            <%= form.submit "Add Images", class: "btn btn-secondary" %>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
