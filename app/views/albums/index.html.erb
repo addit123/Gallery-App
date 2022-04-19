@@ -1,0 +1,98 @@
+<div class ="content ">
+  <div class="container">
+    <h1 class="text-center mt-5 "> Published Album </h1>
+    <hr>
+    <div class="search mt-4 d-flex justify-content-end">
+      <%= search_form_for @q do |f|%>
+        <%= f.search_field :tags_name_or_name_eq , placeholder: "Search By Tag", class:"rounded" %>
+        <%= f.submit "Search", class:"rounded"%>
+      <% end %>
+    </div>
+    <div class= "row mt-5">
+      <% @albums.each do |album| %>
+        <div class = "col-lg-4 text-center shadow-lg p-3 mb-5 bg-body rounded">
+          <div class="card m-3 ">
+            <h3 class="card-title text-dark">
+              <strong>Album:</strong>
+              <%= album.title %>
+            </h3>
+            <%if album.cover_image.attached? %>
+              <div class="card-header">
+                <%=link_to album_path(id: album.id) do %>
+                  <%= image_tag album.cover_image ,  class: 'img-fluid' %>
+                <%end%>
+              </div>
+            <%end%>
+            <div class="card-body">
+              <h5 class="card-title">
+                <center> <strong>Name: </strong><%= album.name %><br>
+                </center>
+                <center><strong>Description: </strong><%= album.description %></center>
+                <hr>
+                <strong>Created at: </strong>
+                <span class="text-muted"><%= album.created_at.to_date%></span>
+                <br>
+                <br>
+                <strong>Total Images: </strong>
+                <span class="text-muted"><%= album.images.count%></span>
+                <br>
+                <br>
+                <strong>Tag: </strong>
+                <span class="text-muted"><%= album.all_tags %></span>
+              </div>
+              <div class="card-footer text-muted">
+                <%= link_to "edit album" , edit_album_path(album) , class: "btn btn-primary" , style: "float: left;"%>
+                <%= button_to 'delete' ,  album_path(album), method: :delete, class: "btn btn-danger fs-5" %>
+              </div>
+            </div>
+            <br>
+          </div>
+        <% end %>
+        <h1 class="text-center">Unpublished Album</h1>
+        <hr>
+        <div class= "row mt-5">
+          <% @un.each do |unpublish| %>
+            <div class = "col-lg-4 text-center shadow-lg p-3 mb-5 bg-body rounded">
+              <div class="card m-3 ">
+                <h3 class="card-title">
+                  <strong>Album:</strong>
+                  <%= unpublish.title %>
+                </h3>
+                <%if unpublish.cover_image.attached? %>
+                  <div class="card-header">
+                    <%=link_to album_path(id: unpublish.id) do %>
+                      <%= image_tag unpublish.cover_image ,  class: 'img-fluid' %>
+                    <%end%>
+                  </div>
+                <%end%>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <center> <strong>Name: </strong><%= unpublish.name %><br>
+                    </center>
+                    <center><strong>Description: </strong><%= unpublish.description %></center>
+                    <hr>
+                    <strong>Created at: </strong>
+                    <span class="text-muted"><%= unpublish.created_at.to_date%></span>
+                    <br>
+                    <br>
+                    <strong>Total Images: </strong>
+                    <span class="text-muted"><%= unpublish.images.count%></span>
+                    <br>
+                    <br>
+                    <strong>Tag: </strong>
+                    <span class="text-muted"><%= unpublish.all_tags %></span>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <%= link_to "edit album" , edit_album_path(unpublish) , class: "btn btn-primary" , style: "float: left;"%>
+                    <%= button_to 'delete' ,  album_path(unpublish), method: :delete, class: "btn btn-danger fs-5", style: "float: right;" %>
+                  </div>
+                </div>
+                <br>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

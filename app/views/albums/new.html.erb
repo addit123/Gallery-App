@@ -1,0 +1,10 @@
+<section class="bg-light">
+  <div class="container  ">
+    <h1 class="mb-5 text-center text-success pt-5">Create New album</h1>
+    <%= render "form", album: @album %>
+    <br>
+    <div>
+      <%= link_to "Back to albums", albums_path, class: "btn btn-primary mb-5" %>
+    </div>
+  </div>
+</section>

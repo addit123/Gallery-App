@@ -1,0 +1,7 @@
+<h1 class ="text-center mt-3 fst-italic text-primary ">Editing album</h1><hr>
+<%= render "form", album: @album %>
+<br>
+<div class ="container">
+  <%= link_to "Show this album", @album , class: "btn btn-primary" %> |
+  <%= link_to "Back to albums", albums_path , class: "btn btn-warning"%>
+</div>
