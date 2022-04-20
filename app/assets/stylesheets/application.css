@@ -33,3 +33,9 @@ h1, h2  , h4 {
   width: 100%;
   object-fit: cover;
 }
+.edit{
+    float: left;
+}
+.delete{
+    float: right;
+}

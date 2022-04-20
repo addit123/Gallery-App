@@ -4,12 +4,9 @@ class AlbumsController < ApplicationController
 
   # GET /albums or /albums.json
   def index
-    @albums = current_user.albums.published
-    @un = current_user.albums.unpublished
-    @q = @albums.ransack(params[:q])
-    @albums= @q.result.includes(:tags)
-    @q = @un.ransack(params[:q])
-    @un= @q.result.includes(:tags)
+     @q = current_user.albums.ransack(params[:q])
+     @published = @q.result.published.includes(:tags)
+     @unpublished = @q.result.unpublished.includes(:tags)
   end
 
   # GET /albums/1 or /albums/1.json
