@@ -39,3 +39,8 @@ h1, h2  , h4 {
 .delete{
     float: right;
 }
+.foot{
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+}
