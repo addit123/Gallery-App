@@ -1,24 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
   <div class="container">
-  <a class="navbar-brand text-light" href="/">GALLERY</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand text-light" href="/">
+      <i class="bi bi-camera-fill"></i>
+      Gallery
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link text-light" %>
-        </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%= link_to  root_path, class: "nav-link text-light #{'active fw-bold' if current_page?(root_path)}" do %>
+          Home
+        <% end %>
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to " New Album", new_album_path, class: "nav-link text-light" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to " My Album", albums_path, class: "nav-link text-light" %>
-          </li>
+          <%= link_to new_album_path, class: "nav-link text-light #{'active fw-bold' if current_page?(new_album_path)}" do %>
+            New Album
+          <% end %>
+          <%= link_to albums_path, class: "nav-link text-light" do%>
+            My Album
+          <%end%>
         <%end%>
       </ul>
-      <ul class="navbar-nav ms-auto ">
+      <ul class="navbar-nav ms-auto">
         <% if current_user %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,7 +33,7 @@
                 <div class="fa fa-cog"></div>
                 <b>Account settings</b>
               <% end %>
-              <%= button_to destroy_user_session_path,method: :delete,  class: "dropdown-item" do %>
+              <%= button_to destroy_user_session_path,method: :delete, class: "dropdown-item" do %>
                 <div class="fa fa-sign-out-alt"></div>
                 <b>Sign out</b>
               <% end %>
