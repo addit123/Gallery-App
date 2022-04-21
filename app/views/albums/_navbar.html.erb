@@ -9,11 +9,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%= link_to  root_path, class: "nav-link text-light #{'active fw-bold' if current_page?(root_path)}" do %>
+        <%= link_to  root_path, class: "nav-link text-light " do %>
           Home
         <% end %>
         <% if user_signed_in? %>
-          <%= link_to new_album_path, class: "nav-link text-light #{'active fw-bold' if current_page?(new_album_path)}" do %>
+          <%= link_to new_album_path, class: "nav-link text-light " do %>
             New Album
           <% end %>
           <%= link_to albums_path, class: "nav-link text-light" do%>
@@ -29,7 +29,7 @@
               <b><%= current_user.email %></b>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to edit_user_registration_path, class: "dropdown-item #{'active fw-bold' if current_page?(edit_user_registration_path)}" do %>
+              <%= link_to edit_user_registration_path, class: "dropdown-item " do %>
                 <div class="fa fa-cog"></div>
                 <b>Account settings</b>
               <% end %>
