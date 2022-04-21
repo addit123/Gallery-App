@@ -41,8 +41,9 @@
                 <span class="text-muted"><%= album.all_tags %></span>
               </div>
               <div class="card-footer text-muted">
-                <%= link_to "edit album" , edit_album_path(album) , class: "btn btn-primary edit" %>
-                <%= button_to 'delete' ,  album_path(album), method: :delete, class: "btn btn-danger fs-5 delete" %>
+                <%= link_to "View" ,album_path(album) , class: "btn btn-info delete fs-5" %>
+                <%= link_to "edit album" , edit_album_path(album) , class: "btn btn-primary edit"%>
+                <%= button_to 'delete' ,  album_path(album), method: :delete, class: "btn btn-danger fs-5 mt-5" %>
               </div>
             </div>
             <br>
@@ -83,8 +84,9 @@
                     <span class="text-muted"><%= unpublish.all_tags %></span>
                   </div>
                   <div class="card-footer text-muted">
+                    <%= link_to "View" ,album_path(unpublish) , class: "btn btn-info delete fs-5" %>
                     <%= link_to "edit album" , edit_album_path(unpublish) , class: "btn btn-primary edit"%>
-                    <%= button_to 'delete' ,  album_path(unpublish), method: :delete, class: "btn btn-danger fs-5 delete" %>
+                    <%= button_to 'delete' ,  album_path(unpublish), method: :delete, class: "btn btn-danger fs-5 mt-5" %>
                   </div>
                 </div>
                 <br>
